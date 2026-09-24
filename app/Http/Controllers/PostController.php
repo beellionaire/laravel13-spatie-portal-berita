@@ -14,6 +14,7 @@ class PostController extends Controller
     {
        Gate::authorize('viewAny', Post::class);
        $posts = Post::with('user')->latest()->get();
+       // $posts = Post::latest()->get();
        return view('posts.index', compact('posts'));
     }
 
